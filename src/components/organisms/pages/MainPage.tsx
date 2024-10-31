@@ -32,7 +32,9 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className="bg-none     min-h-screen p-4 mx-auto">
+    <div>
+      <h1 className="text-3xl font-bold mb-4">GitHub Stats</h1>
+
       <SearchBox onSearch={search} placeholder="Search GitHub user stats" />
       {data && (
         <>

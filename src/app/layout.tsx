@@ -31,13 +31,13 @@ export default function RootLayout({
       >
         <div className="flex h-screen overflow-hidden">
           <aside className="w-64 bg-gray-800 text-white hidden sm:flex flex-col p-6">
-            <h1 className="text-2xl font-semibold mb-4">Client App</h1>
-            <nav className="space-y-2">
+            <h1 className="text-2xl font-semibold mb-4">Menu</h1>
+            <nav className="space-y-2 text-xl">
               <Link
                 href="/"
                 className="block py-2 px-3 rounded hover:bg-gray-700"
               >
-                Home
+                Main
               </Link>
               <Link
                 href="/protected"
@@ -55,13 +55,8 @@ export default function RootLayout({
           </aside>
 
           <main className="flex-1 p-6 overflow-auto">
-            <header className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold">GitHub Client</h2>
-              <div className="flex space-x-4">
-                <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500">
-                  Refresh
-                </button>
-              </div>
+            <header className="flex items-center justify-left mb-8">
+              <h2 className="text-3xl font-bold">GitHub Aternative Client</h2>
             </header>
 
             <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6">

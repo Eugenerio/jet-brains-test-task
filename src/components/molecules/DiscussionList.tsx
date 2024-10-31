@@ -1,12 +1,22 @@
 import React from "react";
 import { GitHubDiscussion } from "@/lib/types/github";
 
-const DiscussionList: React.FC<{ discussions: GitHubDiscussion[] }> = ({
-  discussions,
-}) => (
-  <ul>
-    {discussions && discussions.length > 0 ? (
-      discussions.map((discussion) => (
+interface DiscussionListProps {
+  discussions: GitHubDiscussion[];
+}
+
+const DiscussionList: React.FC<DiscussionListProps> = ({ discussions }) => {
+  if (!discussions || discussions.length === 0) {
+    return (
+      <ul>
+        <li>No discussions available</li>
+      </ul>
+    );
+  }
+
+  return (
+    <ul>
+      {discussions.map((discussion) => (
         <li
           key={discussion.id}
           className="p-4 text-black bg-white mb-2 rounded shadow-sm"
@@ -18,11 +28,9 @@ const DiscussionList: React.FC<{ discussions: GitHubDiscussion[] }> = ({
           </p>
           <p>{discussion.body}</p>
         </li>
-      ))
-    ) : (
-      <li>No discussions available</li>
-    )}
-  </ul>
-);
+      ))}
+    </ul>
+  );
+};
 
 export default DiscussionList;

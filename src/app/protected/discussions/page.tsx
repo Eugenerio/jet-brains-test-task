@@ -1,10 +1,12 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import { ComponentType, Suspense } from "react";
 
 const DiscussionPage: ComponentType = dynamic(
   () => import("@/components/organisms/pages/DiscussionPage"),
   {
-    ssr: true,
+    ssr: false,
   }
 );
 
