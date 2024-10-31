@@ -7,7 +7,7 @@ const IssueList: React.FC<{ issues: GitHubIssue[] }> = ({ issues }) => (
       issues.map((issue) => (
         <li
           key={issue.id}
-          className="p-4 bg-white text-black mb-2 rounded shadow-sm"
+          className="p-4 text-black bg-white mb-2 rounded shadow-sm"
         >
           <h3 className="text-lg font-bold">{issue.title}</h3>
           <p className="text-sm">By {issue.user.login}</p>

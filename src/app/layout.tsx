@@ -45,16 +45,13 @@ export default function RootLayout({
               >
                 Issues
               </Link>
-              <a
-                href="/discussions"
+              <Link
+                href="/protected/discussions"
                 className="block py-2 px-3 rounded hover:bg-gray-700"
               >
                 Discussions
-              </a>
+              </Link>
             </nav>
-            <button className="mt-auto py-2 px-3 bg-gray-700 rounded text-sm hover:bg-gray-600">
-              Dark Mode
-            </button>
           </aside>
 
           <main className="flex-1 p-6 overflow-auto">

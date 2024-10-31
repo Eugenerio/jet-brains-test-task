@@ -2,9 +2,10 @@ import { useState } from "react";
 
 interface SearchBoxProps {
   onSearch: (searchTerm: string) => void;
+  placeholder: string;
 }
 
-const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
+const SearchBox: React.FC<SearchBoxProps> = ({ onSearch, placeholder }) => {
   const [input, setInput] = useState("");
 
   const handleSearch = () => {
@@ -18,8 +19,8 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Search GitHub User"
-        className="flex-1 p-2 rounded"
+        placeholder={placeholder}
+        className="flex-1 p-2 rounded text-black placeholder:text-black"
       />
       <button
         onClick={handleSearch}

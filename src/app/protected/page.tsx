@@ -1,27 +1,19 @@
-import React from "react";
-import { GitHubIssue } from "@/lib/types/github";
-import IssueList from "@/components/molecules/IssueList";
-import { fetchGitHubIssues } from "@/lib/github";
+import dynamic from "next/dynamic";
+import { ComponentType, Suspense } from "react";
 
-const Page = async () => {
-  try {
-    const issues: GitHubIssue[] = await fetchGitHubIssues("facebook/react");
-
-    return (
-      <div>
-        <h1 className="text-3xl font-bold mb-4">GitHub Issues</h1>
-        <IssueList issues={issues} />
-      </div>
-    );
-  } catch (error) {
-    console.error("Failed to fetch issues:", error);
-    return (
-      <div>
-        <h1 className="text-3xl font-bold mb-4">GitHub Issues</h1>
-        <p>Error fetching issues. Please try again later.</p>
-      </div>
-    );
+const IssuesPage: ComponentType = dynamic(
+  () => import("@/components/organisms/pages/IssuesPage"),
+  {
+    ssr: true,
   }
+);
+
+const Page = () => {
+  return (
+    <Suspense>
+      <IssuesPage />
+    </Suspense>
+  );
 };
 
 export default Page;
