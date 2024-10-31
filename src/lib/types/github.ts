@@ -13,3 +13,14 @@ export interface GitHubComment {
   user: { login: string };
   created_at: string;
 }
+
+export interface GitHubDiscussion {
+  id: number;
+  title: string;
+  body: string;
+  user: {
+    login: string;
+    avatar_url: string;
+  };
+  created_at: string;
+}
