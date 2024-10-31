@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "../atoms/Card";
 
 interface CardListProps {
   data: {
@@ -8,21 +9,16 @@ interface CardListProps {
   };
 }
 
-const CardList: React.FC<CardListProps> = ({ data }) => (
-  <div className="grid grid-cols-3 gap-4 text-black">
-    <div className="p-4 bg-white rounded shadow-md">
-      <h3 className="text-lg font-bold">Followers</h3>
-      <p className="text-xl">{data.followers}</p>
+const CardList: React.FC<CardListProps> = ({ data }) => {
+  const { followers, following, public_repos } = data;
+
+  return (
+    <div className="grid grid-cols-3 gap-4 text-black">
+      <Card title="Followers" value={followers} />
+      <Card title="Following" value={following} />
+      <Card title="Public Repos" value={public_repos} />
     </div>
-    <div className="p-4 bg-white rounded shadow-md">
-      <h3 className="text-lg font-bold">Following</h3>
-      <p className="text-xl">{data.following}</p>
-    </div>
-    <div className="p-4 bg-white rounded shadow-md">
-      <h3 className="text-lg font-bold">Public Repos</h3>
-      <p className="text-xl">{data.public_repos}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 export default CardList;

@@ -1,10 +1,22 @@
 import React from "react";
 import { GitHubIssue } from "@/lib/types/github";
 
-const IssueList: React.FC<{ issues: GitHubIssue[] }> = ({ issues }) => (
-  <ul>
-    {issues && issues.length > 0 ? (
-      issues.map((issue) => (
+interface IssueListProps {
+  issues: GitHubIssue[];
+}
+
+const IssueList: React.FC<IssueListProps> = ({ issues }) => {
+  if (!issues || issues.length === 0) {
+    return (
+      <ul>
+        <li>No issues available</li>
+      </ul>
+    );
+  }
+
+  return (
+    <ul>
+      {issues.map((issue) => (
         <li
           key={issue.id}
           className="p-4 text-black bg-white mb-2 rounded shadow-sm"
@@ -15,11 +27,9 @@ const IssueList: React.FC<{ issues: GitHubIssue[] }> = ({ issues }) => (
             Created on {new Date(issue.created_at).toLocaleDateString()}
           </p>
         </li>
-      ))
-    ) : (
-      <li>No issues available</li>
-    )}
-  </ul>
-);
+      ))}
+    </ul>
+  );
+};
 
 export default IssueList;

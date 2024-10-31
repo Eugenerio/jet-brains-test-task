@@ -14,7 +14,7 @@ const User: React.FC<UserProps> = ({ src, username }) => {
         alt={username}
         width={60}
         height={60}
-        className="rounded-full mr-4"
+        className="rounded-full mr-4 object-cover"
       />
       <div>
         <h2 className="text-lg font-bold text-black">{username}</h2>

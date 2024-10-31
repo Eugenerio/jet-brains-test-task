@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Client App",
+  title: "GitHub Aternative Client",
   description: "An alternative client for browsing GitHub issues",
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900 text-gray-100`}
       >
         <div className="flex h-screen overflow-hidden">
           <aside className="w-64 bg-gray-800 text-white hidden sm:flex flex-col p-6">

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { fetchGitHubIssues } from "@/lib/helpers/github";
 import IssueList from "@/components/molecules/IssueList";
@@ -21,8 +21,9 @@ const Issues: React.FC<{ initialIssues?: GitHubIssue[] }> = ({
 }) => {
   const [issues, setIssues] = useState<GitHubIssue[]>(initialIssues || []);
   const [loading, setLoading] = useState(false);
+  const [searchTerm] = useState("");
 
-  const handleSearch = useCallback(async (searchTerm: string) => {
+  const handleSearch = useCallback(async () => {
     if (!searchTerm) {
       alert("Please enter a valid project name");
       return;
@@ -38,7 +39,11 @@ const Issues: React.FC<{ initialIssues?: GitHubIssue[] }> = ({
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    handleSearch();
+  }, [searchTerm]);
 
   return (
     <div>
